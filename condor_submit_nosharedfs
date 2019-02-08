@@ -1,0 +1,18 @@
+executable              = run_pwhg_condor_nosharedfs.sh
+arguments               = $(Process)
+
+transfer_input_files    = STEP_REPLACE_data.tgz
+
+output                  = condor/logVBFWZ_STEP_REPLACE_$(Process).out
+error                   = condor/logVBFWZ_STEP_REPLACE_$(Process).err
+log                     = condor/logVBFWZ_STEP_REPLACE_$(Process).log
+initialdir              = /data/kelong/genproductions/bin/Powheg/test/testVBFWZ/TunedGeneration/STEP_REPLACE
+getEnv                  = 1
+
+WhenToTransferOutput = On_Exit
+ShouldTransferFiles  = yes
++RequiresCVMFS       = True
+request_memory       = 1000
+request_disk         = 2048000
+
+Requirements         = TARGET.Arch == "X86_64" && (TARGET.OSG_major =!= undefined || TARGET.IS_GLIDEIN=?=true) && (TARGET.HasParrotCVMFS=?=true || (TARGET.UWCMS_CVMFS_Exists  && TARGET.CMS_CVMFS_Exists ))
