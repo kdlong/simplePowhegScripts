@@ -8,8 +8,7 @@ You have to run each step individually, wait for it to finish, and then run the 
 
 You will probably also want to modify the number of jobs for each step etc. In principle running is very easy:
 
-```
-bash
+```bash
 
 bash prepareStep1-1.sh
 ...
